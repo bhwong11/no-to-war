@@ -5,7 +5,7 @@ import { createWebHistory, createRouter } from 'vue-router'
 
 const routes = [
   { path: '/', component: () => Home },
-  { path: '/sign-on/', component: () => SignOn },
+  { path: '/sign-up/', component: () => SignOn },
   { path: '/:pathMatch(.*)', component: () => Page404 },
 ]
 
