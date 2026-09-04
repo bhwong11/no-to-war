@@ -1,47 +1,62 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <div class="main-page">
+    <nav class="nav-bar">
+      <img src="./assets/logo.svg" alt="Heritage Without Erasure" width="150"/>
+      <ul class="nav-buttons">
+        <li>
+          <RouterLink to="/" v-if="currentPath !== '/'">
+            <button class="bg-black hover:bg-gray-800 text-white font-medium py-2.5 px-5 rounded-lg transition-colors duration-200">Go to Open Letter</button>
+          </RouterLink>
+        </li>
+        <li>
+          <RouterLink to="/sign-on/" v-if="currentPath.replace(/\/+$/, '') !== '/sign-on'">
+            <button class="bg-black hover:bg-gray-800 text-white font-medium py-2.5 px-5 rounded-lg transition-colors duration-200">Go to Sign On</button>
+          </RouterLink>
+        </li>
+      </ul>
+    </nav>
+    <main class="w-full flex justify-center flex-col">
+      <RouterView />
+    </main>
+  </div>
 </template>
 
+<script setup lang="ts">
+import { computed } from 'vue';
+import { RouterView, RouterLink } from 'vue-router';
+import { useRoute } from 'vue-router'
+const route = useRoute()
+
+const currentPath = computed(() => route.path);
+</script>
+
 <style scoped>
-header {
-  line-height: 1.5;
+.main-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.nav-bar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 1rem;
+  align-items: center;
+  .nav-buttons {
+    display: flex;
+    gap: 0.5rem;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
+@media (min-width: 23.438rem) {
+  .nav-bar {
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
 </style>
