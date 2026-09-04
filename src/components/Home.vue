@@ -1,7 +1,8 @@
 <template>
-    <article class="main-article text-center min-[23.75rem]:text-left">
-    <header class="header italic-text">
-      <h2>
+    <article class="main-article items-center text-center min-[23.75rem]:text-left">
+    <img src="../assets/anti-war-logo.jpg" alt="Anti-War" width="150" class="rounded-full"/>
+    <header class="header flex flex-col items-center italic-text pt-[1rem]">
+      <h2 class="font-bold">
         No to war
       </h2>
       <h2>
@@ -14,17 +15,6 @@
 <script setup lang="ts"></script>
 
 <style scoped>
-.header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.title {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-weight: bolder;
-}
 .main-article {
   display: flex;
   flex-direction: column;

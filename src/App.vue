@@ -1,8 +1,7 @@
 <template>
   <div class="main-page">
-    <nav class="nav-bar">
-      <img src="./assets/logo.svg" alt="Heritage Without Erasure" width="150"/>
-      <ul class="nav-buttons">
+    <nav class="nav-bar flex justify-end">
+      <ul class="nav-buttons items-center flex-col min-[17.2rem]:flex-row">
         <li>
           <RouterLink to="/" v-if="currentPath !== '/'">
             <button class="bg-black hover:bg-gray-800 text-white font-medium py-2.5 px-5 rounded-lg transition-colors duration-200">
@@ -19,7 +18,7 @@
         </li>
       </ul>
     </nav>
-    <main class="w-full flex justify-center flex-col">
+    <main class="w-full flex justify-center flex-col  px-[1rem]">
       <RouterView />
     </main>
   </div>
@@ -60,7 +59,6 @@ const currentPath = computed(() => route.path);
 @media (min-width: 23.438rem) {
   .nav-bar {
     flex-direction: row;
-    justify-content: space-between;
   }
 }
 </style>
