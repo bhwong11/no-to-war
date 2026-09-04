@@ -4,9 +4,9 @@ import Page404 from '@/components/Page404.vue'
 import { createWebHistory, createRouter } from 'vue-router'
 
 const routes = [
-  { path: '/', component: () => Home },
-  { path: '/sign-up/', component: () => SignOn },
-  { path: '/:pathMatch(.*)', component: () => Page404 },
+  { path: '/', component: Home },
+  { path: '/sign-up/', component: SignOn },
+  { path: '/:pathMatch(.*)', component: Page404 },
 ]
 
 export const router = createRouter({
