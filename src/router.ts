@@ -1,11 +1,15 @@
 import Home from '@/components/Home.vue'
-import SignOn from '@/components/SignUp.vue'
+import SignUp from '@/components/SignUp.vue'
+import Calendar from '@/components/Calendar.vue'
+import Links from '@/components/Links.vue'
 import Page404 from '@/components/Page404.vue'
 import { createWebHistory, createRouter } from 'vue-router'
 
 const routes = [
   { path: '/', component: Home },
-  { path: '/sign-up/', component: SignOn },
+  { path: '/sign-up/', component: SignUp },
+  { path: '/calendar/', component: Calendar },
+  { path: '/Links/', component: Links },
   { path: '/:pathMatch(.*)', component: Page404 },
 ]
 

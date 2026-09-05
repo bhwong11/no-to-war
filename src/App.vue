@@ -2,17 +2,13 @@
   <div class="main-page">
     <nav class="nav-bar flex justify-end">
       <ul class="nav-buttons items-center flex-col min-[17.2rem]:flex-row">
-        <li>
-          <RouterLink to="/" v-if="currentPath !== '/'">
+        <li v-for="navLink, index in navLinks" :key="`${navLink.linkHref}-${index}`">
+          <RouterLink 
+            :to="navLink.linkHref"
+            v-if="navLink.isHome ? currentPath !== '/' : currentPath !== navLink.linkHref"
+          >
             <button class="bg-black hover:bg-gray-800 text-white font-medium py-2.5 px-5 rounded-lg transition-colors duration-200">
-              Go to Home
-            </button>
-          </RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/sign-up/" v-if="currentPath.replace(/\/+$/, '') !== '/sign-on'">
-            <button class="bg-black hover:bg-gray-800 text-white font-medium py-2.5 px-5 rounded-lg transition-colors duration-200">
-              Sign Up
+              {{navLink.linkText}}
             </button>
           </RouterLink>
         </li>
@@ -28,6 +24,7 @@
 import { computed } from 'vue';
 import { RouterView, RouterLink } from 'vue-router';
 import { useRoute } from 'vue-router'
+import { navLinks } from '@/consts/navLinks';
 const route = useRoute()
 
 const currentPath = computed(() => route.path);
