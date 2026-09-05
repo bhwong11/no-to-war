@@ -7,9 +7,9 @@
             :to="navLink.linkHref"
             v-if="navLink.isHome ? currentPath !== '/' : currentPath !== navLink.linkHref"
           >
-            <button class="bg-black hover:bg-gray-800 text-white font-medium py-2.5 px-5 rounded-lg transition-colors duration-200">
+            <p class=" text-black underline color-nacl">
               {{navLink.linkText}}
-            </button>
+            </p>
           </RouterLink>
         </li>
       </ul>
