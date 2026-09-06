@@ -1,6 +1,25 @@
 <template>
-  <div v-for="link in links">
-    <a :href="link.linkHref" class="text-blue-600 hover:text-blue-800 hover:underline">
+  <div class="flex flex-col justify-center items-center">
+    <a 
+      v-for="link in links"
+      :href="link.linkHref" 
+      class="
+        text-black
+        hover:text-white
+        hover:underline
+        my-[1rem]
+        bg-transparent
+        hover:bg-black
+        font-semibold
+        hover:text-white
+        py-2
+        px-4
+        border
+        border-black
+        hover:border-transparent
+        rounded
+      "
+    >
       {{ link.linkText }}
     </a>
   </div>

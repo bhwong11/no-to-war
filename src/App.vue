@@ -1,13 +1,31 @@
 <template>
   <div class="main-page">
     <nav class="nav-bar flex justify-end">
-      <ul class="nav-buttons items-center flex-col min-[17.2rem]:flex-row">
-        <li v-for="navLink, index in navLinks" :key="`${navLink.linkHref}-${index}`">
+      <ul class="
+        nav-buttons
+        items-center
+        flex-col
+        min-[17.2rem]:flex-row
+        px-[1rem]
+        "
+      >
+        <li 
+          v-for="navLink, index in navLinks.filter(filterCurrentPageLink)"
+          :key="`${navLink.linkHref}-${index}`"
+          class="
+            hover:bg-red-800
+            hover:text-white
+            font-bold
+            py-[1rem]
+            px-[0.5rem]
+            text-xl
+            text-center
+          "
+        >
           <RouterLink 
             :to="navLink.linkHref"
-            v-if="navLink.isHome ? currentPath !== '/' : currentPath !== navLink.linkHref"
           >
-            <p class=" text-black underline color-nacl">
+            <p class="underline color-nacl">
               {{navLink.linkText}}
             </p>
           </RouterLink>
@@ -24,10 +42,14 @@
 import { computed } from 'vue';
 import { RouterView, RouterLink } from 'vue-router';
 import { useRoute } from 'vue-router'
-import { navLinks } from '@/consts/navLinks';
+import { navLinks, type NavLink } from '@/consts/navLinks';
 const route = useRoute()
 
 const currentPath = computed(() => route.path);
+
+const filterCurrentPageLink = (navLink: NavLink) => (
+  navLink.isHome ? currentPath.value !== '/' : currentPath.value !== navLink.linkHref
+)
 </script>
 
 <style scoped>
@@ -42,14 +64,12 @@ const currentPath = computed(() => route.path);
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 1rem;
   align-items: center;
   .nav-buttons {
     display: flex;
     gap: 0.5rem;
     list-style-type: none;
     margin: 0;
-    padding: 0;
   }
 }
 

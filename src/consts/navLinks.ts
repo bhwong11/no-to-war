@@ -1,4 +1,4 @@
-type NavLink = {
+export type NavLink = {
   linkText: string,
   linkHref: string,
   isHome?: boolean
@@ -10,7 +10,7 @@ export const navLinks:  NavLink[] = [
     isHome: true
   },
   {
-    linkText: 'Join',
+    linkText: 'Get Involved',
     linkHref: '/sign-up/',
     isHome: false
   },
