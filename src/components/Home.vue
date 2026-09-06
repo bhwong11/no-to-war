@@ -1,5 +1,14 @@
 <template>
-    <article class="main-article items-center text-center min-[23.75rem]:text-left">
+    <article 
+      class="
+        main-article
+        items-center
+        text-center
+        min-[23.75rem]:text-left
+        pb-[5rem]
+        px-[4rem]
+      "
+    >
     <img 
       src="../assets/anti-war-logo.jpg" alt="Anti-War" width="150" class="rounded-full"
     />
@@ -29,7 +38,6 @@
 .main-article {
   display: flex;
   flex-direction: column;
-  padding: 0 4rem;
 }
 .italic-text {
   font-style: italic;
