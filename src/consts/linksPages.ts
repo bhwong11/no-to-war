@@ -3,7 +3,7 @@ type Link = {
   linkHref: string,
 }
 
-export const links: Link[] = [
+export const pagelinks: Link[] = [
   {
     linkText: 'Get Involved',
     linkHref:'https://docs.google.com/forms/d/e/1FAIpQLScQnL82Fit1AZPR4msUk5MMTy90daOhfLwxGWoor04Glu141Q/viewform',

@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col justify-center items-center">
     <a 
-      v-for="link in links"
+      v-for="link in pagelinks"
       :href="link.linkHref" 
       class="
         text-black
@@ -26,5 +26,5 @@
 </template>
 
 <script setup lang="ts">
-import { links } from '@/consts/linksPage';
+import { pagelinks } from '@/consts/linksPage';
 </script>
