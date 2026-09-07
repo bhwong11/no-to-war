@@ -27,14 +27,15 @@
       href="https://docs.google.com/forms/d/e/1FAIpQLScQnL82Fit1AZPR4msUk5MMTy90daOhfLwxGWoor04Glu141Q/viewform"
       class="mt-[1rem] bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
     >
-      {{ (homeText as any)?.buttonText ?? "Get Involved" }}
+      {{ homeText?.buttonText }}
     </a>
     </article>
 </template>
 
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
-const homeText = ref({});
+import { type HomePage } from "@/consts/types";
+const homeText = ref<HomePage>();
 onMounted(async () => {
   const response = await fetch('/text-files/home.json');
   homeText.value = await response.json();
