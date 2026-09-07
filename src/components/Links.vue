@@ -26,5 +26,5 @@
 </template>
 
 <script setup lang="ts">
-import { links } from "@/consts/linksPage";
-</script>@/consts/linksPage
+import { links } from '@/consts/linksPage';
+</script>
