@@ -1,20 +1,32 @@
 <template>
   <div class="flex flex-col items-center">
     <img 
-      src="@/assets/anti-war-sign-up.png"
+      :src="signUpPage?.bannerLink || defaultImageUrl"
       class="header-image"
       alt="Join Anti-war"
     />
     <h1 class="text-4xl font-bold tracking-tight pt-[2rem]">
-      Want to support? Sign Up!
+      {{ signUpPage?.header }}
     </h1>
     <a 
-      href="https://docs.google.com/forms/d/e/1FAIpQLScQnL82Fit1AZPR4msUk5MMTy90daOhfLwxGWoor04Glu141Q/viewform"
+      :href="signUpPage?.buttonLink"
       class="mt-[1rem] bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
     >
-      Sign Up
+      {{ signUpPage?.buttonText }}
     </a>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { computed, onMounted, ref } from "vue";
+import { type SignUpPage } from "@/consts/types";
+const signUpPage = ref<SignUpPage>();
+onMounted(async () => {
+  const response = await fetch('/text-files/signUp.json');
+  signUpPage.value = await response.json();
+})
+
+const defaultImageUrl = computed(() => {
+  return new URL('@/assets/anti-war-sign-up.png', import.meta.url).href
+})
+</script>

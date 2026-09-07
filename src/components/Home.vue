@@ -14,20 +14,20 @@
     />
     <header class="header flex flex-col items-center italic-text pt-[1rem]">
       <h1 class="font-bold text-2xl">
-        Anti-War Committee DMV
+        {{ homePage?.header }}
       </h1>
       <h2 class="text-xl pt-[1rem]">
-        End the US War Machine!
+        {{ homePage?.subHeader }}
       </h2>
     </header>
     <p class="max-w-[19rem] text-center pt-[1rem]">
-      A grassroots anti-war organization located in DMV who are committed to de-militarization and fighting the U.S war machine.
+      {{ homePage?.description }}
     </p>
     <a 
-      href="https://docs.google.com/forms/d/e/1FAIpQLScQnL82Fit1AZPR4msUk5MMTy90daOhfLwxGWoor04Glu141Q/viewform"
+      :href="homePage?.buttonLink"
       class="mt-[1rem] bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
     >
-      {{ homeText?.buttonText }}
+      {{ homePage?.buttonText }}
     </a>
     </article>
 </template>
@@ -35,10 +35,10 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import { type HomePage } from "@/consts/types";
-const homeText = ref<HomePage>();
+const homePage = ref<HomePage>();
 onMounted(async () => {
   const response = await fetch('/text-files/home.json');
-  homeText.value = await response.json();
+  homePage.value = await response.json();
 })
 
 </script>

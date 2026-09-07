@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col justify-center items-center">
     <a 
-      v-for="link in pagelinks"
+      v-for="link in linksPage?.links"
       :href="link.linkHref" 
       class="
         text-black
@@ -26,5 +26,11 @@
 </template>
 
 <script setup lang="ts">
-import { pagelinks } from '@/consts/linksPage';
+import { onMounted, ref } from "vue";
+import { type LinksPage } from "@/consts/types";
+const linksPage = ref<LinksPage>();
+onMounted(async () => {
+  const response = await fetch('/text-files/links.json');
+  linksPage.value = await response.json();
+})
 </script>
