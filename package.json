@@ -7,10 +7,10 @@
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
-    "build-only": "vite build && cp dist/index.html dist/404.html",
+    "build-only": "vite build && cp dist/index.html dist/404.html && cp CNAME dist/CNAME",
     "type-check": "vue-tsc --build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "predeploy": "npm run build && cp dist/index.html dist/404.html && cp CNAME dist/CNAME",
+    "deploy": "npm run predeploy && gh-pages -d dist"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",

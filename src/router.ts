@@ -14,6 +14,6 @@ const routes = [
 ]
 
 export const router = createRouter({
-  history: createWebHistory("/no-to-war/"),
+  history: createWebHistory(),
   routes,
 })
