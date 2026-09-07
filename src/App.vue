@@ -45,8 +45,12 @@ import { useRoute } from 'vue-router'
 import { type NavLink } from "@/consts/types";
 const navLinks = ref<NavLink[]>();
 onMounted(async () => {
-  const response = await fetch('/text-files/navBar.json');
-  navLinks.value = await response.json();
+  try {
+    const response = await fetch('/text-files/navBar.json');
+    navLinks.value = await response.json();
+  } catch (e) {
+    console.error("ERROR:", e)
+  }
 })
 
 const route = useRoute()

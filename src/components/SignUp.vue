@@ -22,8 +22,12 @@ import { computed, onMounted, ref } from "vue";
 import { type SignUpPage } from "@/consts/types";
 const signUpPage = ref<SignUpPage>();
 onMounted(async () => {
-  const response = await fetch('/text-files/signUp.json');
-  signUpPage.value = await response.json();
+  try {
+    const response = await fetch('/text-files/signUp.json');
+    signUpPage.value = await response.json();
+  } catch (e) {
+    console.error("ERROR:", e)
+  }
 })
 
 const defaultImageUrl = computed(() => {

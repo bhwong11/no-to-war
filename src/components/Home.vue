@@ -37,10 +37,13 @@ import { onMounted, ref } from "vue";
 import { type HomePage } from "@/consts/types";
 const homePage = ref<HomePage>();
 onMounted(async () => {
-  const response = await fetch('/text-files/home.json');
-  homePage.value = await response.json();
+  try {
+    const response = await fetch('/text-files/home.json');
+    homePage.value = await response.json();
+  } catch (e) {
+    console.error("ERROR:", e)
+  }
 })
-
 </script>
 
 <style scoped>
