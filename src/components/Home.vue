@@ -33,17 +33,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
-import { type HomePage } from "@/consts/types";
-const homePage = ref<HomePage>();
-onMounted(async () => {
-  try {
-    const response = await fetch('/text-files/home.json');
-    homePage.value = await response.json();
-  } catch (e) {
-    console.error("ERROR:", e)
-  }
-})
+import * as homePage from "@/text-files/home.json"
 </script>
 
 <style scoped>

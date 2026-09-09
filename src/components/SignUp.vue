@@ -18,17 +18,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref } from "vue";
-import { type SignUpPage } from "@/consts/types";
-const signUpPage = ref<SignUpPage>();
-onMounted(async () => {
-  try {
-    const response = await fetch('/text-files/signUp.json');
-    signUpPage.value = await response.json();
-  } catch (e) {
-    console.error("ERROR:", e)
-  }
-})
+import { computed } from "vue";
+import * as signUpPage from "@/text-files/signUp.json"
 
 const defaultImageUrl = computed(() => {
   return new URL('@/assets/anti-war-sign-up.png', import.meta.url).href

@@ -26,15 +26,5 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
-import { type LinksPage } from "@/consts/types";
-const linksPage = ref<LinksPage>();
-onMounted(async () => {
-  try {
-    const response = await fetch('/text-files/links.json');
-    linksPage.value = await response.json();
-  } catch (e) {
-    console.error("ERROR:", e)
-  }
-})
+import * as linksPage from "@/text-files/links.json"
 </script>
