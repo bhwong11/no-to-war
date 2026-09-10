@@ -34,7 +34,6 @@
 
 <script setup lang="ts">
 import * as homePage from "@/text-files/home.json"
-console.log("NAVE LINKS", homePage)
 </script>
 
 <style scoped>
