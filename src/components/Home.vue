@@ -10,7 +10,10 @@
       "
     >
     <img 
-      src="../assets/anti-war-logo.jpg" alt="Anti-War" width="150" class="rounded-full"
+      :src="homePage?.logoImageLink || defaultImageUrl"
+      alt="Anti-War" 
+      width="150" 
+      class="rounded-full"
     />
     <header class="header flex flex-col items-center italic-text pt-[1rem]">
       <h1 class="font-bold text-2xl">
@@ -34,6 +37,10 @@
 
 <script setup lang="ts">
 import * as homePage from "@/text-files/home.json"
+import { computed } from "vue";
+const defaultImageUrl = computed(() => {
+  return new URL('@/assets/anti-war-logo.jpg', import.meta.url).href
+})
 </script>
 
 <style scoped>

@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col items-center">
     <img 
-      :src="signUpPage?.bannerLink || defaultImageUrl"
+      :src="signUpPage?.bannerImageLink || defaultImageUrl"
       class="header-image"
       alt="Join Anti-war"
     />
