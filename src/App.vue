@@ -10,7 +10,7 @@
         "
       >
         <li 
-          v-for="navLink, index in navLinks?.filter(filterCurrentPageLink)"
+          v-for="navLink, index in navBar.links.filter(filterCurrentPageLink)"
           :key="`${navLink.linkHref}-${index}`"
           class="
             hover:bg-red-800
@@ -39,19 +39,11 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue';
+import { computed } from 'vue';
 import { RouterView, RouterLink } from 'vue-router';
 import { useRoute } from 'vue-router'
-import { type NavLink } from "@/consts/types";
-const navLinks = ref<NavLink[]>();
-onMounted(async () => {
-  try {
-    const response = await fetch('/text-files/navBar.json');
-    navLinks.value = await response.json();
-  } catch (e) {
-    console.error("ERROR:", e)
-  }
-})
+import { type NavLink } from '@/consts/types';
+import * as navBar from "@/text-files/navBar.json"
 
 const route = useRoute()
 const currentPath = computed(() => route.path);
