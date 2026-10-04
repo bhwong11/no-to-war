@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-[#F8FAFC] text-[#0F172A] mh-1vh">
+  <div class="mh-1vh">
     <div class="release-wrapper flex flex-col px-[3rem]">
       <section class="flex flex-col items-center">
         <div class="border-1 mt-[3rem] mb-[1rem] w-full"></div>
