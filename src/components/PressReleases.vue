@@ -23,6 +23,9 @@
             Even here in the US, everyone from Homeland Security to state and local police departments use Palantir's technology to spy on everyday people. ICE uses Palantir's "ImmigrationOS" software to surveil, target, and attack immigrants.
           </p>
           <p class="text-lg pb-[0.75rem]">
+            Since the start of Trump’s second term, Palantir and its subsidiaries have received more than $2.5 billion in federal tax dollars (6), and millions more from state and local governments. Do you want your money going to fund a shady surveillance giant?
+          </p>
+          <p class="text-lg pb-[0.75rem]">
             We know the problem isn’t just one party or president: the problem is US imperialism. The US is the greatest purveyor of violence and injustice in the world today, and Palantir is involved at every level. They are one of the many tentacles of US imperialism, and a tentacle we intend to cut off.
           </p>
           <p class="text-lg pb-[0.75rem]">
